@@ -1,44 +1,55 @@
-document.getElementById("wanderer").style.top = "0vw";
-document.getElementById("wanderer").style.left = "0vw";
+document.getElementById("wanderer").style.top = "360px";
+document.getElementById("wanderer").style.left = "360px";
+document.getElementById("board").style.top = "0px";
+document.getElementById("board").style.left = "0px";
+
 let ifGuidePresent = true;
 
-// document.addEventListener("click", function(event) {
-//   console.log(event);
-// });
-// console.log(document.elementFromPoint(300, 300));
 document.addEventListener("keydown", function(event) {
   switch (event.key) {
     case "ArrowUp":
       let previousPositionUp = document.getElementById("wanderer").style.top;
-      let newPositionUp = (parseFloat(previousPositionUp.slice(0, -2)) - 3.5) + "vw";
-      if ((parseFloat(previousPositionUp.slice(0, -2)) - 3.5) < 0) {
+      let newPositionUp = (parseFloat(previousPositionUp.slice(0, -2)) - 40) + "px";
+      if ((parseFloat(previousPositionUp.slice(0, -2)) - 40) < 0) {
         break;
       }
       document.getElementById("wanderer").style.top = newPositionUp;
+      let previousPositionOfBoardUp = document.getElementById("board").style.top;
+      let newPositionOfBoardUp = (parseFloat(previousPositionOfBoardUp.slice(0, -2)) + 40) + "px";
+      document.getElementById("board").style.top = newPositionOfBoardUp;
       break;
     case "ArrowDown":
       let previousPositionDown = document.getElementById("wanderer").style.top;
-      let newPositionDown = (parseFloat(previousPositionDown.slice(0, -2)) + 3.5) + "vw";
-      if ((parseFloat(previousPositionDown.slice(0, -2)) + 3.5) > 66.5) {
+      let newPositionDown = (parseFloat(previousPositionDown.slice(0, -2)) + 40) + "px";
+      if ((parseFloat(previousPositionDown.slice(0, -2)) + 40) > 3960) {
         break;
       }
       document.getElementById("wanderer").style.top = newPositionDown;
+      let previousPositionOfBoardDown = document.getElementById("board").style.top;
+      let newPositionOfBoardDown = (parseFloat(previousPositionOfBoardDown.slice(0, -2)) - 40) + "px";
+      document.getElementById("board").style.top = newPositionOfBoardDown;
       break;
     case "ArrowRight":
       let previousPositionRight = document.getElementById("wanderer").style.left;
-      let newPositionRight = (parseFloat(previousPositionRight.slice(0, -2)) + 3.5) + "vw";
-      if ((parseFloat(previousPositionRight.slice(0, -2)) + 3.5) > 66.5) {
+      let newPositionRight = (parseFloat(previousPositionRight.slice(0, -2)) + 40) + "px";
+      if ((parseFloat(previousPositionRight.slice(0, -2)) + 40) > 3960) {
         break;
       }
       document.getElementById("wanderer").style.left = newPositionRight;
+      let previousPositionOfBoardRight = document.getElementById("board").style.left;
+      let newPositionOfBoardRight = (parseFloat(previousPositionOfBoardRight.slice(0, -2)) - 40) + "px";
+      document.getElementById("board").style.left = newPositionOfBoardRight;
       break;
     case "ArrowLeft":
       let previousPositionLeft = document.getElementById("wanderer").style.left;
-      let newPositionLeft = (parseFloat(previousPositionLeft.slice(0, -2)) - 3.5) + "vw";
-      if ((parseFloat(previousPositionLeft.slice(0, -2)) - 3.5) < 0) {
+      let newPositionLeft = (parseFloat(previousPositionLeft.slice(0, -2)) - 40) + "px";
+      if ((parseFloat(previousPositionLeft.slice(0, -2)) - 40) < 0) {
         break;
       }
       document.getElementById("wanderer").style.left = newPositionLeft;
+      let previousPositionOfBoardLeft = document.getElementById("board").style.left;
+      let newPositionOfBoardLeft = (parseFloat(previousPositionOfBoardLeft.slice(0, -2)) + 40) + "px";
+      document.getElementById("board").style.left = newPositionOfBoardLeft;
       break;
     case "q":
       createObject("strawberry");
@@ -78,6 +89,16 @@ function createObject(name) {
   document.getElementById("board").appendChild(object);
 }
 
+function handleRemoveObject() {
+  let item = document.getElementById("wanderer");
+  let board = document.getElementById("board");
+  let itemBeingRemoved = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
+  console.log(itemBeingRemoved);
+  if (itemBeingRemoved.classList == "object") {
+    itemBeingRemoved.remove();
+  }
+}
+
 function handleGuideBtn() {
   if (ifGuidePresent) {
     document.getElementById("guide-container").style.opacity = "0";
@@ -85,14 +106,5 @@ function handleGuideBtn() {
   } else {
     document.getElementById("guide-container").style.opacity = "1";
     ifGuidePresent = true;
-  }
-}
-
-function handleRemoveObject(){
-  let item = document.getElementById("wanderer");
-  let board = document.getElementById("board");
-  let itemBeingRemoved = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 1, item.offsetTop + board.offsetTop + 1);
-  if(itemBeingRemoved.classList == "object"){
-    itemBeingRemoved.remove();
   }
 }
