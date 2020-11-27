@@ -1,0 +1,93 @@
+body {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.name-header {
+  margin: 0;
+}
+
+.container-board {
+  position: absolute;
+  background-color: lightgray;
+  height: 70vw;
+  width: 70vw;
+  /* height: 1000px;
+  width: 1000px; */
+  top: 40px;
+  left: 15vw;
+}
+
+.wanderer {
+  pointer-events: none;
+  position: absolute;
+  width: 3.5vw;
+  height: 3.5vw;
+  top: 0vw;
+  left: 0vw;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.wanderer-img {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+}
+
+.object {
+  position: absolute;
+  width: 3.5vw;
+  height: 3.5vw;
+}
+
+@media (min-width: 400px) and (min-height: 400px) {
+  .container-board {
+    height: 70vw;
+    width: 70vw;
+    top: 50px;
+    left: 15vw;
+  }
+}
+
+/* Guide */
+.guide {
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  height: 95vh;
+  width: 15vw;
+  background-color: gray;
+  transition: 0.5s;
+  overflow: auto;
+  opacity: 1;
+  font-size: 10px;
+  z-index: 10;
+}
+
+.guide-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5vh;
+  width: 150px;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.guide-btn:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.guide-item {
+  width: 100%;
+  height: 9vh;
+  margin: 0.5vh 0;
+  background-color: lightgray;
+}
