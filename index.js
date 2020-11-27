@@ -70,8 +70,20 @@ document.addEventListener("keydown", function(event) {
     case "y":
       createObject("stone-tile");
       break;
+    case "u":
+      createObject("water");
+      break;
+    case "i":
+      createObject("sheep");
+      break;
+    case "o":
+      createObject("pig");
+      break;
     case "v":
       handleRemoveObject();
+      break;
+    case "b":
+      handleInspectObject();
       break;
   }
 });
@@ -95,9 +107,29 @@ function handleRemoveObject() {
   let board = document.getElementById("board");
   let itemBeingRemoved = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
   if (itemBeingRemoved.classList == "object") {
-    // console log object name
-    console.log(itemBeingRemoved.src.slice(45, -4));
     itemBeingRemoved.remove();
+  }
+}
+
+function handleInspectObject() {
+  let item = document.getElementById("wanderer");
+  let board = document.getElementById("board");
+  let itemBeingInspected = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
+  if (itemBeingInspected.classList == "object") {
+    // console log object name
+    // console.log(itemBeingInspected.src.slice(45, -4));
+    let info = document.createElement("div");
+    info.classList.add("info");
+    info.id = "tempId";
+    info.innerHTML = itemBeingInspected.src.slice(45, -4);
+    info.style.top = (item.offsetTop - 40) + "px";
+    info.style.left = (item.offsetLeft) + "px";
+    document.getElementById("board").appendChild(info);
+    setTimeout(removeInfo, 2000);
+  }
+
+  function removeInfo() {
+    document.getElementById("tempId").remove();
   }
 }
 
