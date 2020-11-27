@@ -14,6 +14,15 @@
 <body id="body">
   <h1 class="name-header">JS-Game</h1>
 
+
+  <div class="container-board">
+    <div id="board" class="board">
+      <div id="wanderer" class="wanderer">
+        <img class="wanderer-img" src="images/favicon2.ico" alt="wanderer">
+      </div>
+    </div>
+  </div>
+
   <div onclick="handleGuideBtn()" class="guide-btn">
     How to play
   </div>
@@ -59,11 +68,19 @@
     </div>
   </div>
 
-  <div class="container-board">
-    <div id="board" class="board">
-      <div id="wanderer" class="wanderer">
-        <img class="wanderer-img" src="images/favicon2.ico" alt="wanderer">
-      </div>
+
+  <div onclick="handleBagpackBtn()" class="bagpack-btn">
+    Bagpack
+  </div>
+  <div id="bagpack-container" class="bagpack">
+    <div class="guide-item">
+
+    </div>
+    <div class="guide-item">
+
+    </div>
+    <div class="guide-item">
+
     </div>
   </div>
 

@@ -4,6 +4,7 @@ document.getElementById("board").style.top = "0px";
 document.getElementById("board").style.left = "0px";
 
 let ifGuidePresent = true;
+let ifBagpackPresent = true;
 
 document.addEventListener("keydown", function(event) {
   switch (event.key) {
@@ -93,8 +94,9 @@ function handleRemoveObject() {
   let item = document.getElementById("wanderer");
   let board = document.getElementById("board");
   let itemBeingRemoved = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
-  console.log(itemBeingRemoved);
   if (itemBeingRemoved.classList == "object") {
+    // console log object name
+    console.log(itemBeingRemoved.src.slice(45, -4));
     itemBeingRemoved.remove();
   }
 }
@@ -106,5 +108,15 @@ function handleGuideBtn() {
   } else {
     document.getElementById("guide-container").style.opacity = "1";
     ifGuidePresent = true;
+  }
+}
+
+function handleBagpackBtn() {
+  if (ifBagpackPresent) {
+    document.getElementById("bagpack-container").style.opacity = "0";
+    ifBagpackPresent = false;
+  } else {
+    document.getElementById("bagpack-container").style.opacity = "1";
+    ifBagpackPresent = true;
   }
 }
