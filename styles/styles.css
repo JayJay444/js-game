@@ -13,10 +13,10 @@ body {
 .container-board {
   position: absolute;
   background-color: lightgray;
-  height: 70vw;
-  width: 70vw;
-  /* height: 1000px;
-  width: 1000px; */
+  /* height: 70vw;
+  width: 70vw; */
+  height: 1000px;
+  width: 1000px;
   top: 40px;
   left: 15vw;
 }
