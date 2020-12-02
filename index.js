@@ -116,12 +116,11 @@ function handleInspectObject() {
   let board = document.getElementById("board");
   let itemBeingInspected = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
   if (itemBeingInspected.classList == "object") {
-    // console log object name
-    // console.log(itemBeingInspected.src.slice(45, -4));
+    console.log(itemBeingInspected);
     let info = document.createElement("div");
     info.classList.add("info");
     info.id = "tempId";
-    info.innerHTML = itemBeingInspected.src.slice(45, -4);
+    info.innerHTML = itemBeingInspected.src.slice(43, -4);
     info.style.top = (item.offsetTop - 40) + "px";
     info.style.left = (item.offsetLeft) + "px";
     document.getElementById("board").appendChild(info);
