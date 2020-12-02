@@ -62,10 +62,10 @@ document.addEventListener("keydown", function(event) {
       createObject("cucumber5");
       break;
     case "r":
-      createObject("wood-oak-sharp");
+      createObject("wood-oak");
       break;
     case "t":
-      createObject("wood-birch-sharp");
+      createObject("wood-birch");
       break;
     case "y":
       createObject("stone-tile");
