@@ -1,5 +1,10 @@
-document.getElementById("wanderer").style.top = "360px";
-document.getElementById("wanderer").style.left = "360px";
+
+// Set starting position of the Wanderer
+let windowCenter = window.innerWidth/2;
+let gameBoardOffset = document.getElementById("container-board").offsetLeft
+let startingPosition = Math.floor((windowCenter - gameBoardOffset)/40)*40  + "px";
+document.getElementById("wanderer").style.top = startingPosition;
+document.getElementById("wanderer").style.left = startingPosition;
 document.getElementById("board").style.top = "0px";
 document.getElementById("board").style.left = "0px";
 
