@@ -59,7 +59,7 @@ document.addEventListener("keydown", function(event) {
       createObject("carrot");
       break;
     case "e":
-      createObject("cucumber5");
+      createObject("cucumber");
       break;
     case "r":
       createObject("wood-oak");
