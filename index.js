@@ -1,16 +1,32 @@
-
 // Set starting position of the Wanderer
-let windowCenter = window.innerWidth/2;
-let gameBoardOffset = document.getElementById("container-board").offsetLeft
-let startingPosition = Math.floor((windowCenter - gameBoardOffset)/40)*40  + "px";
-document.getElementById("wanderer").style.top = startingPosition;
-document.getElementById("wanderer").style.left = startingPosition;
+if (window.innerWidth < 1200) {
+  let windowCenter = window.innerWidth / 2;
+  let gameBoardOffset = document.getElementById("container-board").offsetLeft
+  let startingPosition = Math.floor((windowCenter - gameBoardOffset) / 40) * 40 + "px";
+  document.getElementById("wanderer").style.top = startingPosition;
+  document.getElementById("wanderer").style.left = startingPosition;
+} else {
+  let gameBoardOffsetLeft = document.getElementById("container-board").offsetLeft;
+  let gameBoardOffsetTop = document.getElementById("container-board").offsetTop;
+
+  let windowCenterLeft = window.innerWidth / 2;
+  let startingPositionLeft = Math.floor((windowCenterLeft - gameBoardOffsetLeft) / 40) * 40 + "px";
+  let windowCenterTop = window.innerHeight / 2;
+  let startingPositionTop = Math.floor((windowCenterTop - gameBoardOffsetTop) / 40) * 40 + "px";
+
+  document.getElementById("wanderer").style.top = startingPositionTop;
+  document.getElementById("wanderer").style.left = startingPositionLeft;
+}
+
+// Set starting position of the board
 document.getElementById("board").style.top = "0px";
 document.getElementById("board").style.left = "0px";
 
+// Set visibility of guide and bagpack
 let ifGuidePresent = true;
 let ifBagpackPresent = true;
 
+//Add control using keys
 document.addEventListener("keydown", function(event) {
   switch (event.key) {
     case "ArrowUp":
@@ -93,6 +109,7 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+// Creating objects on the board
 function createObject(name) {
   let positionVer = document.getElementById("wanderer").style.top;
   let positionHor = document.getElementById("wanderer").style.left;
@@ -101,12 +118,13 @@ function createObject(name) {
   object.classList.add("object");
   object.style.top = positionVer;
   object.style.left = positionHor;
-  object.addEventListener("click", function() {
+  object.addEventListener("click", function() { //Removing objects via mouse click
     this.remove();
   });
   document.getElementById("board").appendChild(object);
 }
 
+//Removing objects from the board using "v" command
 function handleRemoveObject() {
   let item = document.getElementById("wanderer");
   let board = document.getElementById("board");
@@ -119,6 +137,7 @@ function handleRemoveObject() {
   }
 }
 
+//Inspecting objects using "b" command
 function handleInspectObject() {
   let item = document.getElementById("wanderer");
   let board = document.getElementById("board");
@@ -142,6 +161,7 @@ function handleInspectObject() {
   }
 }
 
+// Handling guide and bagpack buttons
 function handleGuideBtn() {
   if (ifGuidePresent) {
     document.getElementById("guide-container").style.opacity = "0";

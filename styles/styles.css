@@ -10,6 +10,7 @@ body {
   margin: 0;
 }
 
+/* Board */
 .container-board {
   position: absolute;
   top: 40px;
@@ -29,6 +30,11 @@ body {
     left: 15vw;
   }
 }
+@media (min-width: 1200px){
+  .container-board {
+    height: 90vh;
+  }
+}
 
 .board {
   position: absolute;
@@ -39,6 +45,7 @@ body {
   transition: 0.2s;
 }
 
+/* Elements */
 .wanderer {
   pointer-events: none;
   position: absolute;
