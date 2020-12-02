@@ -105,7 +105,10 @@ function createObject(name) {
 function handleRemoveObject() {
   let item = document.getElementById("wanderer");
   let board = document.getElementById("board");
-  let itemBeingRemoved = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
+  let containerBoard = document.getElementById("container-board");
+  let leftPosition = item.offsetLeft + board.offsetLeft + containerBoard.offsetLeft + 20;
+  let topPosition = item.offsetTop + board.offsetTop + containerBoard.offsetTop + 20;
+  let itemBeingRemoved = document.elementFromPoint(leftPosition, topPosition);
   if (itemBeingRemoved.classList == "object") {
     itemBeingRemoved.remove();
   }
@@ -114,9 +117,11 @@ function handleRemoveObject() {
 function handleInspectObject() {
   let item = document.getElementById("wanderer");
   let board = document.getElementById("board");
-  let itemBeingInspected = document.elementFromPoint(item.offsetLeft + board.offsetLeft + 201, item.offsetTop + board.offsetTop + 81);
+  let containerBoard = document.getElementById("container-board");
+  let leftPosition = item.offsetLeft + board.offsetLeft + containerBoard.offsetLeft + 20;
+  let topPosition = item.offsetTop + board.offsetTop + containerBoard.offsetTop + 20;
+  let itemBeingInspected = document.elementFromPoint(leftPosition, topPosition);
   if (itemBeingInspected.classList == "object") {
-    console.log(itemBeingInspected);
     let info = document.createElement("div");
     info.classList.add("info");
     info.id = "tempId";
